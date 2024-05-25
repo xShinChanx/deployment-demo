@@ -51,7 +51,11 @@ jobs:
 
       - name: Build Docker Image
         run: |
-          docker build --tag "gcr.io/${{ env.PROJECT_ID }}/${{ env.IMAGE }}:${{ env.TAG }}" .
+          docker build --tag "gcr.io/$PROJECT_ID/$IMAGE:$TAG" .
+        env:
+          PROJECT_ID: ${{ secrets.GKE_PROJECT }}
+          IMAGE: github-actions-image
+          TAG: 1.0.0
 
       - name: Publish Docker Image to GCR
         run: |-
