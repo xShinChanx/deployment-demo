@@ -57,4 +57,9 @@ jobs:
       - name: Push Docker image to Container Registry
         run: docker push gcr.io/deployment-github-424417/${{ env.SERVICE }}:${{ github.sha }}
 
+      - name: Show Output
+        run: echo ${{ steps.gohibeesh.outputs.url }}
+
+        
+
 
