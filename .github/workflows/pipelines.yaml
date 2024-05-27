@@ -55,6 +55,6 @@ jobs:
         run: docker build -t gcr.io/deployment-github-424417/${{ env.SERVICE }}:${{ github.sha }} .
       
       - name: Push Docker image to Container Registry
-        run: docker push gcr.io/${{ env.PROJECT_ID }}/${{ env.SERVICE }}:${{ github.sha }}
+        run: docker push gcr.io/deployment-github-424417/${{ env.SERVICE }}:${{ github.sha }}
 
 
