@@ -13,7 +13,7 @@ env:
   IMAGE: github-actions-image
   TAG: 1.0.0
   SERVICE: webapp
-  REGION: Netherlands # Add a service name here
+  REGION: europe-west4 # Add a service name here
 
 jobs:
   build:
