@@ -12,6 +12,7 @@ env:
   DEPLOYMENT_NAME: github-deployment
   IMAGE: github-actions-image
   TAG: 1.0.0
+  SERVICE: webapp  # Add a service name here
 
 jobs:
   build:
