@@ -52,17 +52,6 @@ jobs:
 
       - name: Build and Push Container
         run: |-
-          docker build -t gcr.io/${{ env.PROJECT_ID }}/${{ env.SERVICE }}:${{  github.sha }} .
-          docker push gcr.io/${{ env.PROJECT_ID }}/${{ env.SERVICE }}:${{  github.sha }}
-      - name: Deploy to Cloud Run
-        id: gohibeesh
-        run: gcloud run deploy ${{env.SERVICE}} --image gcr.io/${{ env.PROJECT_ID }}/${{ env.SERVICE }}:${{  github.sha }} --port ${{env.PORT}} --region ${{env.REGION}} --cpu=1 --memory=1Gi --timeout=3000 --allow-unauthenticated || true
-      #        uses: google-github-actions/deploy-cloudrun@v0.4.0
-      #        with:
-      #          service: ${{ env.SERVICE }}
-      #          image: gcr.io/${{ env.PROJECT_ID }}/${{ env.SERVICE }}:${{  github.sha }}
-      #          region: ${{ env.REGION }}
-      #          port: ${{ env.PORT }}
-
-      - name: Show Output
-        run: echo ${{ steps.gohibeesh.outputs.url }}
+          docker build -t gcr.io/${{ env.PROJECT_ID }}/${{ env.SERVICE }}:${{ github.sha }} .
+          docker push gcr.io/${{ env.PROJECT_ID }}/${{ env.SERVICE }}:${{ github.sha }}
+        working-directory: ./../../Dockerfile
