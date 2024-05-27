@@ -62,7 +62,7 @@ jobs:
 
       - name: Deploy to Cloud Run
         id: gohibeesh
-        run: gcloud run deploy ${{env.SERVICE}} --image gcr.io/deployment-github-424417/${{ env.SERVICE }}:${{  github.sha }} --port ${{env.PORT}} --region ${{env.REGION}} --cpu=1 --memory=1Gi --timeout=3000 --allow-unauthenticated || true
+        run: gcloud run deploy ${{env.SERVICE}} --image gcr.io/deployment-github-424417/${{ env.SERVICE }}:${{  github.sha }} --region ${{env.REGION}} --cpu=1 --memory=1Gi --timeout=3000 --allow-unauthenticated || true
 
         
 
